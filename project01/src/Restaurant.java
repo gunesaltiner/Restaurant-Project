@@ -68,12 +68,36 @@ public class Restaurant {
             }
         }
     }
+    public double calculateExpenses(){
+        double exp1=0;
+        double exp2=0;
 
+        for(int i=0; i<=employees.size()-1 ;i++){
+            exp1=exp1 + employees.get(i).calculateExpense();
+        }
 
+        for (int k=0; k<= employees.size()-1 ; k++){
+            if (employees.get(k) instanceof Waiter){
+                for (int m=0; m<=((Waiter) employees.get(k)).getOrdersReceived().size()-1 ;m++) {
+                    for (int j = 0; j <= ((Waiter) employees.get(k)).getOrdersReceived().get(m).getOrderedProducts().size() - 1; j++) {
+                        exp2 = exp2 + ((Waiter) employees.get(k)).getOrdersReceived().get(m).getOrderedProducts().get(j).calculateExpense();
+                    } } } }
+        return exp1+exp2;
+    }
 
+    public double calculateRevenue(){
+        double revenue=0;
+        for (int k=0; k<= employees.size()-1 ; k++){
+            if (employees.get(k) instanceof Waiter){
+                for (int m=0; m<=((Waiter) employees.get(k)).getOrdersReceived().size()-1 ;m++){
+                    revenue=revenue +  ((Waiter) employees.get(k)).getOrdersReceived().get(m).calculateTotalPrice();
+                }
+            }
+        }
+        return revenue;
+    }
 
-
-
-
-
+    public ArrayList<Product> getProducts(){
+        return products;
+    }
 }
