@@ -15,5 +15,22 @@ public class MenuProduct extends Product{
         }
         return total;
     }
+    private double calculateSellingPrice(){
+        double x=0;
 
+        for (int i=0; i<= product.size()-1 ;i++){
+
+            if (product.get(i) instanceof MainDish){
+                x=x+ (product.get(i).getSellingPrice()*9/10);
+
+            }if (product.get(i) instanceof Dessert){
+                x=x+ (product.get(i).getSellingPrice()*8/10);
+
+            }if (product.get(i) instanceof Beverage){
+                x=x+ (product.get(i).getSellingPrice()/2);
+            }
+        }
+
+        return x;
+    }
 }
