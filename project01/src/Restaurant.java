@@ -45,7 +45,29 @@ public class Restaurant {
         Kidsproducts.add(new Dessert("Ice Cream", 3, 0.5, 0.5));
         products.add(new MenuProduct("Kids Menu", Kidsproducts));
     }
+    public void listEmployees(){
+        for (int i=0; i<= employees.size()-1;i++){
+            System.out.println(employees.get(i).toString());
 
+        }
+    }
+
+    public void addCook(String name, double salary){
+        employees.add(new Cook(employees.size()+1, name, salary));
+    }
+    public void addWaiter(String name){
+        employees.add(new Waiter(employees.size()+1, name));
+    }
+
+    public Waiter assignWaiter(){
+        Random random = new Random();
+        int i = random.nextInt(employees.size());
+        while(true){
+            if (employees.get(i) instanceof Waiter){
+                return (Waiter) employees.get(i);
+            }
+        }
+    }
 
 
 
