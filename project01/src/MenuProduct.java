@@ -8,4 +8,12 @@ public class MenuProduct extends Product{
         this.product=product;
         setSellingPrice(calculateSellingPrice());
     }
+    public double calculateExpense(){
+        double total=0;
+        for (int i=0; i<=product.size()-1 ; i++){
+            total=total+product.get(i).calculateExpense();
+        }
+        return total;
+    }
+
 }
