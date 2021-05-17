@@ -26,4 +26,17 @@ public abstract class Product implements Expense {
     public double getPurchasePrice(){
         return purchasePrice;
     }
+    public double getSellingPrice(){
+        return sellingPrice;
+    }
+
+    public void setSellingPrice(double sellingPrice){
+        this.sellingPrice=sellingPrice;
+    }
+
+    public double getUtilityCost(){ return utilityCost;}
+
+    public String toString(){
+        return getName()+" :"+ getSellingPrice();
+    }
 }
