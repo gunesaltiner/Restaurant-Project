@@ -124,7 +124,6 @@ public class Main {
         }
     }
 
-
     private static void addEmployee() {
 
         while(true){
