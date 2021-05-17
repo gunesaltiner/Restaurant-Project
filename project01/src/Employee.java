@@ -11,4 +11,12 @@ public abstract class Employee implements Expense {
     public int getId(){
         return this.id;
     }
+
+    public String getName(){
+        return this.name;
+    }
+
+    public String toString(){
+        return "Employee "+ getId() + ": "+ getName();
+    }
 }
